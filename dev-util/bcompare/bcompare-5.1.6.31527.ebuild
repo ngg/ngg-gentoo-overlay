@@ -15,6 +15,8 @@ KEYWORDS="amd64"
 IUSE=""
 QA_PREBUILT="*"
 
+RESTRICT="bindist mirror"
+
 DEPEND=""
 RDEPEND="
 	app-arch/bzip2
