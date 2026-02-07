@@ -4,7 +4,7 @@
 EAPI=8
 inherit desktop
 
-GHIDRA_DATE="20250219"
+GHIDRA_DATE="20260129"
 
 DESCRIPTION="A software reverse engineering framework"
 HOMEPAGE="https://ghidra-sre.org/"
