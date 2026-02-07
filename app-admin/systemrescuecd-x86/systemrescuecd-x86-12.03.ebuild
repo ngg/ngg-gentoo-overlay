@@ -6,7 +6,8 @@ EAPI=6
 ISO_NAME=systemrescue-${PV}-amd64.iso
 DESCRIPTION="The .iso image of SystemRescue rescue disk, amd64 variant"
 HOMEPAGE="https://www.system-rescue.org/"
-SRC_URI="https://downloads.sourceforge.net/systemrescuecd/${ISO_NAME}"
+#SRC_URI="https://downloads.sourceforge.net/systemrescuecd/${ISO_NAME}"
+SRC_URI="https://fastly-cdn.system-rescue.org/releases/${PV}/${ISO_NAME}"
 
 S=${WORKDIR}
 
