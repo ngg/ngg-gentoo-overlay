@@ -20,37 +20,23 @@ RESTRICT="bindist mirror"
 DEPEND=""
 RDEPEND="
 	app-arch/bzip2
-	dev-libs/expat
-	dev-libs/glib
-	dev-libs/libbsd
-	dev-libs/libpcre
-	dev-qt/qtcore:5
-	dev-qt/qtgui:5
-	dev-qt/qtnetwork:5
-	dev-qt/qtprintsupport:5
-	dev-qt/qtwidgets:5
-	dev-qt/qtx11extras:5
-	media-libs/fontconfig
-	media-libs/freetype
-	media-libs/libpng
+	app-arch/p7zip
+	app-arch/unrar
+	dev-libs/libqt6pas
+	dev-qt/qtbase:6[gui,widgets]
 	sys-apps/dbus
-	sys-apps/util-linux
 	sys-libs/zlib
 	x11-libs/libX11
-	x11-libs/libXau
-	x11-libs/libxcb
-	x11-libs/libXdmcp
-	x11-libs/libXext
-	x11-libs/libXrender
+	x11-libs/libxkbcommon
 	"
 BDEPEND=""
 
 src_install()
 {
 	mkdir -p "${D}/"usr/lib/beyondcompare
-	cp "${S}/"{BCompare,BCompare.mad,lib7z.so,libQt5Pas.so.1,libcloudstorage.so.22.0,libunrar.so} "${D}/"usr/lib/beyondcompare/
+	cp "${S}/"{BCompare,BCompare.mad,libcloudstorage.so.22.0} "${D}/"usr/lib/beyondcompare/
 
-	ln -s /usr/lib/libbz2.so.1 "${D}/"usr/lib/beyondcompare/libbz2.so.1.0
+	ln -s /usr/lib64/p7zip/7z.so "${D}/"usr/lib/beyondcompare/lib7z.so
 
 	mkdir -p "${D}/"usr/bin
 	cat <<-EOF >"${D}"/usr/bin/bcompare || die
