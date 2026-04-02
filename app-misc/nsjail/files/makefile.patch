@@ -1,14 +1,21 @@
 diff --git a/Makefile b/Makefile
-index 35832a0..e25a607 100644
+index 5d4a921..b0855ff 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -21,19 +21,11 @@ ifeq ($(PKG_CONFIG),)
+@@ -6,9 +6,6 @@ ifeq ($(PKG_CONFIG),)
  $(error "Install pkg-config to make it work")
  endif
  
 -CC ?= gcc
 -CXX ?= g++
 -
+ # pkg-config for protobuf can be expensive/slow
+ # Skip pkg-config for: clean, indent, kafel_init, and kafel-only builds
+ ifneq ($(filter-out clean indent kafel_init kafel/libkafel.a,$(MAKECMDGOALS)),)
+@@ -22,17 +19,12 @@ endif
+ 
+ NL3_EXISTS := $(shell pkg-config --exists libnl-route-3.0 && echo yes)
+ 
 -COMMON_FLAGS += -O2 -c \
 -	-D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 \
 -	-fPIE \
@@ -17,11 +24,12 @@ index 35832a0..e25a607 100644
 -	-Ikafel/include
 +COMMON_FLAGS += -c -D_GNU_SOURCE -Ikafel/include
  
- CXXFLAGS += $(USER_DEFINES) $(COMMON_FLAGS) $(shell pkg-config --cflags protobuf) \
--	-std=c++20 -fno-exceptions -Wno-unused -Wno-unused-parameter
--LDFLAGS += -pie -Wl,-z,noexecstack -lpthread $(shell pkg-config --libs protobuf)
+ CXXFLAGS += $(USER_DEFINES) $(COMMON_FLAGS) $(PROTOBUF_CFLAGS) -I. \
+-	-std=c++20 -fno-exceptions -Wno-unused -Wno-unused-parameter -Wno-c99-designator
 +	-std=c++20 -fno-exceptions
-+LDFLAGS += -lpthread $(shell pkg-config --libs protobuf)
  
- BIN = nsjail
- LIBS = kafel/libkafel.a
+-LDFLAGS += -pie -Wl,-z,noexecstack -lpthread $(PROTOBUF_LIBS)
++LDFLAGS += -lpthread $(PROTOBUF_LIBS)
+ 
+ ifeq ($(NL3_EXISTS), yes)
+ 	CXXFLAGS += $(shell pkg-config --cflags libnl-route-3.0)
