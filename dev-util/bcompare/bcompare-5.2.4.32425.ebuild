@@ -19,8 +19,8 @@ RESTRICT="bindist mirror"
 
 DEPEND=""
 RDEPEND="
+	app-arch/7zip
 	app-arch/bzip2
-	app-arch/p7zip
 	app-arch/unrar
 	dev-libs/libqt6pas
 	dev-qt/qtbase:6[gui,widgets]
@@ -36,7 +36,7 @@ src_install()
 	mkdir -p "${D}/"usr/lib/beyondcompare
 	cp "${S}/"{BCompare,BCompare.mad,libcloudstorage.so.22.0} "${D}/"usr/lib/beyondcompare/
 
-	ln -s /usr/lib64/p7zip/7z.so "${D}/"usr/lib/beyondcompare/lib7z.so
+	ln -s /usr/lib64/7z.so "${D}/"usr/lib/beyondcompare/lib7z.so
 
 	mkdir -p "${D}/"usr/bin
 	cat <<-EOF >"${D}"/usr/bin/bcompare || die
