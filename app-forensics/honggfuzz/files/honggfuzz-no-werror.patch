@@ -1,0 +1,13 @@
+diff --git a/Makefile b/Makefile
+index 6e3dfa70..f5bb226c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -49,7 +49,7 @@ LD = $(CC)
+ BIN := $(_OBJDIR)/honggfuzz
+ HFUZZ_CC_BIN := $(_OBJDIR)/hfuzz_cc/hfuzz-cc
+ HFUZZ_CC_SRCS := hfuzz_cc/hfuzz-cc.c
+-COMMON_CFLAGS := -std=c11 -I/usr/local/include -D_GNU_SOURCE -Wall -Wextra -Werror -Wno-format-truncation -Wno-override-init -I$(SRCDIR)
++COMMON_CFLAGS := -std=c11 -I/usr/local/include -D_GNU_SOURCE -Wall -Wextra -Wno-format-truncation -Wno-override-init -I$(SRCDIR)
+ COMMON_LDFLAGS := -pthread -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib -lm
+ COMMON_SRCS := $(sort $(notdir $(wildcard $(SRCDIR)/*.c)))
+ CFLAGS ?= -O3 -mtune=native -funroll-loops

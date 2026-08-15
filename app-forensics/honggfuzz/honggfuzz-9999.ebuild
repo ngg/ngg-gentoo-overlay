@@ -31,8 +31,8 @@ DOCS=(
 )
 
 PATCHES=(
-	"${FILESDIR}"/${PN}-2.6-no-werror.patch
-	"${FILESDIR}"/${PN}-2.6-soname.patch
+	"${FILESDIR}"/${PN}-no-werror.patch
+	"${FILESDIR}"/${PN}-soname.patch
 )
 
 pkg_pretend() {

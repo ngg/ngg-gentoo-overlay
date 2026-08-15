@@ -1,13 +1,13 @@
 diff --git a/Makefile b/Makefile
-index b123b2b0..6d595495 100644
+index f5bb226c..0b08a133 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -310,7 +310,7 @@ $(LHFUZZ_ARCH): $(LHFUZZ_OBJS)
+@@ -356,7 +356,7 @@ $(LHFUZZ_ARCH): $(LHFUZZ_OBJS) | $$(dir $$@)
  	$(AR) rcs $(LHFUZZ_ARCH) $(LHFUZZ_OBJS)
  
- $(LHFUZZ_SHARED): $(LHFUZZ_OBJS) $(LCOMMON_OBJS)
+ $(LHFUZZ_SHARED): $(LHFUZZ_OBJS) $(LCOMMON_OBJS) | $$(dir $$@)
 -	$(LD) -shared $(LHFUZZ_OBJS) $(LCOMMON_OBJS) $(LDFLAGS) -o $@
 +	$(LD) -shared $(LHFUZZ_OBJS) $(LCOMMON_OBJS) $(LDFLAGS) -Wl,-soname,libhfuzz.so -o $@
  
  $(LNETDRIVER_OBJS): $(LNETDRIVER_SRCS)
- 	$(CC) -c $(CFLAGS) $(LIBS_CFLAGS) -o $@ $(@:.o=.c)
+ 
