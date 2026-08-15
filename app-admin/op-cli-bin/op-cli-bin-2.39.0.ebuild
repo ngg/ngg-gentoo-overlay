@@ -16,7 +16,7 @@ S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~x86"
+KEYWORDS="amd64 arm arm64 x86"
 
 BDEPEND="app-arch/unzip"
 RDEPEND="acct-group/onepassword-cli"
