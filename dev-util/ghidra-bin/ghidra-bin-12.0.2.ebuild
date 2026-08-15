@@ -19,7 +19,6 @@ KEYWORDS="amd64"
 IUSE="doc"
 
 RDEPEND="
-	!dev-util/ghidra
 	 >=virtual/jre-21:*
 "
 BDEPEND="
