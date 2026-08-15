@@ -5,15 +5,13 @@ EAPI=8
 
 inherit git-r3 toolchain-funcs
 
-DESCRIPTION="nsjail is a process isolation tool for Linux."
+DESCRIPTION="nsjail is a process isolation tool for Linux"
 HOMEPAGE="https://nsjail.com/"
 EGIT_REPO_URI="https://github.com/google/${PN}"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
 DEPEND="
 	dev-libs/libnl:=
 	dev-libs/protobuf:=

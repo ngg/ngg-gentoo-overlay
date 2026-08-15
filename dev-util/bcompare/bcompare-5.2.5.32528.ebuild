@@ -5,19 +5,17 @@ EAPI=8
 
 inherit xdg-utils
 
-DESCRIPTION="Compare, merge files and folders using simple, powerful commands."
+DESCRIPTION="Compare, merge files and folders using simple, powerful commands"
 HOMEPAGE="https://www.scootersoftware.com"
 SRC_URI="https://www.scootersoftware.com/${P}.x86_64.tar.gz"
 
 LICENSE="bcompare-5"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE=""
 QA_PREBUILT="*"
 
 RESTRICT="bindist mirror"
 
-DEPEND=""
 RDEPEND="
 	app-arch/7zip
 	app-arch/bzip2
@@ -25,11 +23,10 @@ RDEPEND="
 	dev-libs/libqt6pas
 	dev-qt/qtbase:6[gui,widgets]
 	sys-apps/dbus
-	sys-libs/zlib
+	virtual/zlib
 	x11-libs/libX11
 	x11-libs/libxkbcommon
 	"
-BDEPEND=""
 
 src_install()
 {
@@ -60,7 +57,7 @@ src_install()
 
 	# prevent revdep-rebuild from attempting to rebuild all the time
 	insinto /etc/revdep-rebuild
-	echo "SEARCH_DIRS_MASK=\"/usr/lib/beyondcompare\"" >> ${T}/20${PN}
+	echo "SEARCH_DIRS_MASK=\"/usr/lib/beyondcompare\"" >> "${T}/20${PN}"
 	doins "${T}/20${PN}"
 }
 

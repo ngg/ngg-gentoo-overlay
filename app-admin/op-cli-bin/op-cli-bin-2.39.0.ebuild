@@ -12,6 +12,7 @@ arm? ( ${SITE}/op_linux_arm_v${PV}.zip )
 arm64? ( ${SITE}/op_linux_arm64_v${PV}.zip )
 x86? ( ${SITE}/op_linux_386_v${PV}.zip )
 "
+S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
@@ -22,13 +23,12 @@ RDEPEND="acct-group/onepassword-cli"
 
 QA_PREBUILT="usr/bin/op"
 RESTRICT="bindist mirror"
-S="${WORKDIR}"
 
 src_install() {
-  dobin op
+	dobin op
 }
 
 pkg_postinst() {
-  chgrp onepassword-cli /usr/bin/op
-  chmod g+s /usr/bin/op
+	chgrp onepassword-cli /usr/bin/op
+	chmod g+s /usr/bin/op
 }
