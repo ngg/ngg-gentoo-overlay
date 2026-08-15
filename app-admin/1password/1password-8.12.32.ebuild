@@ -15,7 +15,7 @@ S="${WORKDIR}"
 
 LICENSE="all-rights-reserved"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64"
+KEYWORDS="amd64 arm64"
 IUSE="policykit cli"
 DEPEND="
 x11-misc/xdg-utils
